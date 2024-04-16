@@ -8,4 +8,4 @@
 1. Commits autoexplicativos
 2. Pequenos commits a cada funcao feita
 3. Se possivel colocar um prefixo seguido por : para explicar qual sua mudanca.
-ex:   update: Mudando classe X
+ex:   update: Mudando classe Y
