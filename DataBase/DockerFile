@@ -2,5 +2,5 @@ FROM mysql:8.0
 WORKDIR /var/lib/mysql
 
 ENV MYSQL_ROOT_PASSWORD=teste
-ENV MYSQL_DATABASE=teste
+ENV MYSQL_DATABASE=embarque
 CMD ["mysqld"]
