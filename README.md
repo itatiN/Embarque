@@ -11,6 +11,11 @@
 ex:   update: Mudando classe Y
 
 ## Comandos que podem ser necessarios:
-1. docker compose up  - Usado para subir os dockers, use na raiz do projeto
-2. docker compose down - Usado para parar os containers, use na raiz do projeto
-Ignore por enquanto > 3. javac -d classes .jar
+1. cd \Embarque\BackEnd\Embarque - Usado para navegar ate a pasta onde esta o mvnw.cmd
+2. mvnw clean package - Usado para testar o programa e criar o .jar
+3. docker compose up  - Usado para subir os dockers, use na raiz do projeto
+4. docker compose down - Usado para parar os containers, use na raiz do projeto
+
+## Possiveis problemas: 
+1. Esquecer de colocar as variaveis de ambiente JAVA_HOME
+2. Nao rodar o cmd como adm para criar o .jar
