@@ -9,3 +9,8 @@
 2. Pequenos commits a cada funcao feita
 3. Se possivel colocar um prefixo seguido por : para explicar qual sua mudanca.
 ex:   update: Mudando classe Y
+
+## Comandos que podem ser necessarios:
+1. docker compose up  - Usado para subir os dockers, use na raiz do projeto
+2. docker compose down - Usado para parar os containers, use na raiz do projeto
+Ignore por enquanto > 3. javac -d classes .jar
