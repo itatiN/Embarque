@@ -16,7 +16,6 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = "uuid2")
-    @GeneratedValue(strategy = "uuid2")
     @Column(name = "id", columnDefinition = "BINARY(16)")
     private UUID id;
     // Preferi escolher a definicao de coluna para o tipo BINARY(16)
