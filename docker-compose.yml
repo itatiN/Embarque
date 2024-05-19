@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  embarque-app:
+    container_name: embarque
+    build:
+      context: ./BackEnd/Embarque
+      dockerfile: dockerfile
+    restart: always
+    depends_on:
+      - mysql-db
+    ports:
+      - "8081:8081"
+
+  mysql-db:
+    container_name: mysql
+    build:
+      context: ./DataBase
+      dockerfile: dockerfile
+    restart: always
+    ports:
+      - "3307:3307"
