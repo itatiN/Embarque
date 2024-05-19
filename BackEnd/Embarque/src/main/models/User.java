@@ -21,12 +21,12 @@ public class User {
     // Preferi escolher a definicao de coluna para o tipo BINARY(16)
     // pois isso minimiza o espaco(menos bytes e sem caracteres especiais)
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "nome")
+    private String nome;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "senha")
+    private String senha;
 }
