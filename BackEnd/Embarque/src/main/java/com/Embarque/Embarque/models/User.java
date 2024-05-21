@@ -1,9 +1,9 @@
 package com.Embarque.Embarque.models;
-
-import jakarta.annotation.Generated;
+import java.util.UUID;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.SecondaryTable;
@@ -22,7 +22,7 @@ import lombok.Setter;
 // É pouco o que salvamos de energia, mas é algo.
 public class User {
     @Id
-    @GeneratedValue(strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "BINARY(16)")
     private UUID id;
     // Preferi escolher a definicao de coluna para o tipo BINARY(16)
