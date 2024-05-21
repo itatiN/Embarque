@@ -19,7 +19,7 @@ public class Permissoes {
     // a anotação OneToOne junto com a anotação JoinColumn indica que o atributo user é uma chave estrangeira
     @OneToOne 
     @JoinColumn(name = "fk_userId", nullable=false)
-    private User user;
+    private User fk_userId;
 
     @Column(name = "permissao", nullable=false)
     private String permissao;
