@@ -7,6 +7,6 @@ public class EmbarqueApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmbarqueApplication.class, args);
-		System.out.println("Execução de teste de acentos: áéíóúÁÉÍÓÚãõÃÕâêîôûÂÊÎÔÛàèìòùÀÈÌÒÙçÇ");
+		System.out.println("Embarque Application is running!");
 	}
 }
