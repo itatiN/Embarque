@@ -7,5 +7,6 @@ public class EmbarqueApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmbarqueApplication.class, args);
+		System.out.println("Embarque Application is running!");
 	}
 }

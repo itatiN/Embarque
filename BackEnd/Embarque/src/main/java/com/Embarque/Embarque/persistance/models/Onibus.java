@@ -1,13 +1,14 @@
 package com.Embarque.Embarque.persistance.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrimaryKeyJoinColumn;
-import jakarta.persistence.SecondaryTable;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 import lombok.Getter;
@@ -17,23 +18,28 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "onibus")
-@SecondaryTable(name="reserva-de-assentos", pkJoinColumns=@PrimaryKeyJoinColumn(name="id"))
 public class Onibus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Size(min = 7, max = 7, message = "Devera colocar uma placa valida")
+    @NotEmpty
+    @Size(min = 7, max = 7, message = "Deverá colocar uma placa válida")
     @Column(name = "placa", unique = true)
     private String placa;
 
+    @NotEmpty(message = "Modelo é obrigatório")
     @Column(name = "modelo", unique = false)
     private String modelo;
 
+    @NotEmpty(message = "Piloto é obrigatório")
     @Column(name = "piloto", unique = false)
     private String piloto;
 
+    @NotEmpty(message = "Numero de assentos é obrigatório")
     @Column(name = "numero-de-assentos")
     private int numeroAssentos;
-    
+
+    @OneToOne(mappedBy = "onibus", cascade = CascadeType.ALL)
+    private ReservaAssentos reservaAssentos;
 }
