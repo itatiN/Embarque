@@ -9,6 +9,7 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,13 +24,13 @@ public class Onibus {
     private Long id;
     
     @Size(min = 7, max = 7, message = "Devera colocar uma placa valida")
-    @Column(name = "placa")
+    @Column(name = "placa", unique = true)
     private String placa;
 
-    @Column(name = "modelo")
+    @Column(name = "modelo", unique = false)
     private String modelo;
 
-    @Column(name = "piloto")
+    @Column(name = "piloto", unique = false)
     private String piloto;
 
     @Column(name = "numero-de-assentos")
