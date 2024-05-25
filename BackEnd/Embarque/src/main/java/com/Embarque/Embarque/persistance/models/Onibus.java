@@ -10,6 +10,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,15 +25,15 @@ public class Onibus {
     
     @NotEmpty
     @Size(min = 7, max = 7, message = "Deverá colocar uma placa válida")
-    @Column(name = "placa")
+    @Column(name = "placa", unique = true)
     private String placa;
 
     @NotEmpty(message = "Modelo é obrigatório")
-    @Column(name = "modelo")
+    @Column(name = "modelo", unique = false)
     private String modelo;
 
     @NotEmpty(message = "Piloto é obrigatório")
-    @Column(name = "piloto")
+    @Column(name = "piloto", unique = false)
     private String piloto;
 
     @NotEmpty(message = "Numero de assentos é obrigatório")
