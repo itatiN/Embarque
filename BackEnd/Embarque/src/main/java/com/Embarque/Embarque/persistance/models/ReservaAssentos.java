@@ -1,18 +1,22 @@
 package com.Embarque.Embarque.persistance.models;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Id;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@Table(name = "reserva_assentos")
 public class ReservaAssentos {
-    @MapsId
+    @Id
+    private Long id;
+
     @OneToOne
-    @JoinColumn(name = "id")
-    private Onibus id;
+    @MapsId
+    private Onibus onibus;
 }
