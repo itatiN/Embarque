@@ -1,5 +1,8 @@
 package com.Embarque.Embarque.persistance.models;
 
+import java.util.List;
+
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.MapsId;
@@ -19,4 +22,7 @@ public class ReservaAssentos {
     @OneToOne
     @MapsId
     private Onibus onibus;
+
+    @ElementCollection
+    private List<Assento> assentos;
 }

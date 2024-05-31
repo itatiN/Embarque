@@ -1,0 +1,53 @@
+package com.Embarque.Embarque.api.services;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Embarque.Embarque.persistance.models.Assento;
+import com.Embarque.Embarque.persistance.models.Onibus;
+import com.Embarque.Embarque.persistance.models.ReservaAssentos;
+import com.Embarque.Embarque.persistance.repositories.OnibusRepository;
+import com.Embarque.Embarque.persistance.repositories.ReservaAssentosRepository;
+
+import jakarta.transaction.Transactional;
+
+@Service
+public class OnibusService {
+    @Autowired
+    private OnibusRepository onibusRepository;
+
+    @Autowired
+    private ReservaAssentosRepository reservaAssentosRepository;
+    
+    @Transactional
+    public Onibus criarOnibus(Onibus onibus) {
+        Onibus savedOnibus = onibusRepository.save(onibus);
+
+        ReservaAssentos reservaAssentos = new ReservaAssentos();
+        reservaAssentos.setOnibus(savedOnibus);
+        
+        List<Assento> assentos = new ArrayList<>();
+        for (int i = 1; i <= onibus.getNumeroAssentos(); i++) {
+            assentos.add(new Assento(i, false));
+        }
+        reservaAssentos.setAssentos(assentos);
+        
+        reservaAssentosRepository.save(reservaAssentos);
+        
+        savedOnibus.setReservaAssentos(reservaAssentos);
+        return savedOnibus;
+    }
+
+    public void deleteOnibus(Long id) {
+        Optional<Onibus> onibus = onibusRepository.findById(id);
+        onibus.ifPresent(onibusRepository::delete);
+    }
+
+    public Iterable<Onibus> getAllOnibus() {
+        return onibusRepository.findAll();
+    }
+}
