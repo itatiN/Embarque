@@ -1,15 +1,16 @@
 package com.Embarque.Embarque.persistance.models;
 
 import java.sql.Time;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,27 +21,28 @@ import lombok.Setter;
 public class Viagens {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    
-    
-    @NotEmpty(message = "Valor obrigatorio")
+    private Long id;
+
+    @NotEmpty(message = "Valor é obrigatorio")
     @Column(name = "preco", unique = false)
     private Float preco;
 
-    @NotEmpty(message = "Origem obriagatorio")
+    @NotEmpty(message = "Origem é obriagatorio")
     @Column(name = "origem", unique = false)
     private String origem;
 
-    @NotEmpty(message = "Destino obrigatorio")
+    @NotEmpty(message = "Destino é obrigatorio")
     @Column(name = "destino", unique = false)
     private String destino;
 
-    @NotEmpty(message = "Data obrigatorio")
+    @NotEmpty(message = "Data é obrigatorio")
     @Column(name = "data", unique = false)
-    private Data data;
+    private Date data;
 
-    @NotEmpty(message = "Horario obrigatorio")
+    @NotEmpty(message = "Horario é obrigatorio")
     @Column(name = "horario", unique = false)
     private Time horario;
 
-    //falta fazer o Onibus iD FK
+    @ManyToOne
+    private Onibus onibus;
 }
