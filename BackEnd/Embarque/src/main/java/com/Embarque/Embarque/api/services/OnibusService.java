@@ -47,6 +47,11 @@ public class OnibusService {
         onibus.ifPresent(onibusRepository::delete);
     }
 
+    public Onibus mudarPiloto(Onibus onibus, String novoPiloto) {
+        onibus.setPiloto(novoPiloto);
+        return onibusRepository.save(onibus);
+    }
+
     public Iterable<Onibus> getAllOnibus() {
         return onibusRepository.findAll();
     }

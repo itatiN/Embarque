@@ -36,13 +36,11 @@ public class Cliente {
     @Column(name = "email", unique = true)
     private String email;
 
-    @JsonIgnore
     @NotEmpty
     @Size(min = 8, message = "Sua senha deve ter no mínimo {min} caracteres")
     @Column(name = "senha", unique = false)
     private String senha;
 
-    @JsonIgnore
     @NotEmpty
     @Size(min = 11, max = 11, message = "Seu CPF deve ter 11 caracteres")
     @Column(name = "cpf", unique = true)

@@ -38,6 +38,18 @@ public class OnibusController {
         }
     }
 
+    @PutMapping("/{id}/mudar-piloto")
+    public ResponseEntity<Onibus> mudarPiloto(@PathVariable Long id, @RequestBody String novoPiloto) {
+        Optional<Onibus> onibusOptional = onibusRepository.findById(id);
+        if (onibusOptional.isPresent()) {
+            Onibus onibus = onibusOptional.get();
+            Onibus onibusAtualizado = onibusService.mudarPiloto(onibus, novoPiloto);
+            return ResponseEntity.ok(onibusAtualizado);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/all")
     public ResponseEntity<Iterable<Onibus>> getAllOnibus() {
         Iterable<Onibus> onibusList = onibusService.getAllOnibus();
