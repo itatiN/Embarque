@@ -19,6 +19,7 @@ public class ClienteService {
 
     public Cliente saveCliente(Cliente cliente) {
         cliente.setSenha(passwordEncoder.encode(cliente.getSenha()));
+        cliente.setCpf(passwordEncoder.encode(cliente.getCpf()));
         return clienteRepository.save(cliente);
     }
 
