@@ -33,7 +33,6 @@ public class Empresa {
     @Column(name = "email", unique = true)
     private String email;
 
-    @JsonIgnore
     @NotEmpty(message = "Senha e Obrigatorio")
     @Size(min = 8, message = "Sua senha deve ter no minimo {min} caracteres")
     @Column(name = "senha", unique = true)

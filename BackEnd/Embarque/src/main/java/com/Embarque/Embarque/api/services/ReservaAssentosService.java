@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.Embarque.Embarque.persistance.models.ReservaAssentos;
 import com.Embarque.Embarque.persistance.models.Assento;
-import com.Embarque.Embarque.persistance.repositories.OnibusRepository;
 import com.Embarque.Embarque.persistance.repositories.ReservaAssentosRepository;
 
 import jakarta.transaction.Transactional;
@@ -19,9 +18,6 @@ public class ReservaAssentosService {
 
     @Autowired
     private ReservaAssentosRepository reservaAssentosRepository;
-
-    @Autowired
-    private OnibusRepository onibusRepository;
 
     public List<Assento> verAssentosDisponiveis(Long onibusId) {
         Optional<ReservaAssentos> assentoOptional = reservaAssentosRepository.findById(onibusId);

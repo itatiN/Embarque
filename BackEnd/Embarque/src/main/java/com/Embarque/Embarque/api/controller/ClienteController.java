@@ -18,6 +18,7 @@ import com.Embarque.Embarque.api.services.ClienteService;
 import com.Embarque.Embarque.persistance.models.Cliente;
 import com.Embarque.Embarque.persistance.repositories.ClienteRepository;
 
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/cliente")
@@ -46,7 +47,7 @@ public class ClienteController {
             }
         }
 
-        @PutMapping("/atualizarSenha/{id}")
+        @PutMapping("/atualizar-senha/{id}")
         public ResponseEntity<Cliente> atualizarSenha(@PathVariable Long id, @RequestBody String novaSenha) {
             Optional<Cliente> clienteOptional = clienteRepository.findById(id);
             if (clienteOptional.isPresent()) {

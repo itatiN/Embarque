@@ -8,10 +8,11 @@ import com.Embarque.Embarque.api.services.EmpresaService;
 import com.Embarque.Embarque.persistance.models.Empresa;
 import com.Embarque.Embarque.persistance.repositories.EmpresaRepository;
 
+
 import java.util.Optional;
 
 @RestController
-@CrossOrigin("")
+@CrossOrigin("*")
 @RequestMapping("/empresas")
 public class EmpresaController {
 
