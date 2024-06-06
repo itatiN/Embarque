@@ -38,8 +38,8 @@ public class Viagens {
     @Column(name = "data", unique = false)
     private Date data;
 
-    @NotEmpty(message = "Hora é obrigatorio")
-    @Column(name = "hora", unique = false)
+    @NotEmpty(message = "Horario é obrigatorio")
+    @Column(name = "horario", unique = false)
     private String horario;
 
     @ManyToOne
