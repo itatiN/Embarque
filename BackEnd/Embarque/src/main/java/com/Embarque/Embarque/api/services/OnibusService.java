@@ -25,6 +25,11 @@ public class OnibusService {
     
     @Transactional
     public Onibus criarOnibus(Onibus onibus) {
+        Optional<Onibus> existingOnibus = onibusRepository.findByPlaca(onibus.getPlaca());
+        if (existingOnibus.isPresent()) {
+            throw new RuntimeException("Já existe um ônibus cadastrado com a placa " + onibus.getPlaca());
+        }
+
         Onibus savedOnibus = onibusRepository.save(onibus);
 
         ReservaAssentos reservaAssentos = new ReservaAssentos();
@@ -32,13 +37,12 @@ public class OnibusService {
         
         List<Assento> assentos = new ArrayList<>();
         for (int i = 1; i <= onibus.getNumeroAssentos(); i++) {
-            assentos.add(new Assento(i, false));
+            assentos.add(new Assento(i, true));
         }
         reservaAssentos.setAssentos(assentos);
         
         reservaAssentosRepository.save(reservaAssentos);
         
-        savedOnibus.setReservaAssentos(reservaAssentos);
         return savedOnibus;
     }
 
