@@ -1,16 +1,11 @@
 package com.Embarque.Embarque.persistance.models;
 
-import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -43,10 +38,4 @@ public class Onibus {
     @NotEmpty(message = "Numero de assentos é obrigatório")
     @Column(name = "numero-de-assentos")
     private int numeroAssentos;
-
-    @OneToOne(mappedBy = "onibus", cascade = CascadeType.ALL)
-    private ReservaAssentos reservaAssentos;
-
-    @OneToMany(mappedBy = "onibus", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Viagens> viagens;
 }

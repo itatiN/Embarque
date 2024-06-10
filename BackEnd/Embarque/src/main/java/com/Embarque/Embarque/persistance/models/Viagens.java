@@ -1,6 +1,5 @@
 package com.Embarque.Embarque.persistance.models;
 
-import java.sql.Time;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -41,7 +40,7 @@ public class Viagens {
 
     @NotEmpty(message = "Horario é obrigatorio")
     @Column(name = "horario", unique = false)
-    private Time horario;
+    private String horario;
 
     @ManyToOne
     private Onibus onibus;

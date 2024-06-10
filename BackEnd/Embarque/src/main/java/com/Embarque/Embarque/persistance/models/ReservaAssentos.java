@@ -25,4 +25,12 @@ public class ReservaAssentos {
 
     @ElementCollection
     private List<Assento> assentos;
+
+    public List<Assento> getAssentos() {
+        return assentos;
+    }
+
+    public void setAssentos(List<Assento> assentos) {
+        this.assentos = assentos;
+    }
 }
