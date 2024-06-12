@@ -10,4 +10,6 @@ import com.Embarque.Embarque.persistance.models.Cliente;
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
     Optional<Cliente> findById(Long id);
+
+    Optional<Cliente> findByEmail(String email);
 }
