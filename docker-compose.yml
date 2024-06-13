@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  embarque-app:
+    container_name: embarque
+    build:
+      context: ./BackEnd/Embarque
+      dockerfile: dockerfile
+    restart: always
+    depends_on:
+      - mysql-db
+    ports:
+      - "8081:8080"
+    networks:
+      - rede
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/embarque
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: teste
+
+  mysql-db:
+    container_name: mysql
+    build:
+      context: ./DataBase
+      dockerfile: dockerfile
+    restart: always
+    ports:
+      - "3307:3306"
+    networks:
+      - rede
+
+networks:
+  rede:
+    driver: bridge
